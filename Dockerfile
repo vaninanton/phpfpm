@@ -5,11 +5,11 @@ RUN \
     apk add -U --no-cache --virtual temp \
     # dev deps
     autoconf g++ file re2c make zlib-dev oniguruma-dev icu-data-full icu-dev \
-    openldap-dev libzip-dev libmemcached-dev freetype-dev postgresql-dev \
+    openldap-dev libzip-dev libmemcached-dev postgresql-dev \
     # prod deps
     && apk add --no-cache \
     zlib icu libpq libzip linux-headers openldap openldap-back-mdb libmemcached \
-    libpng-dev jpeg-dev libjpeg-turbo-dev \
+    freetype-dev libpng-dev jpeg-dev libjpeg-turbo-dev \
     # php extensions
     && docker-php-source extract \
     && pecl channel-update pecl.php.net \
