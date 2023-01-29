@@ -10,9 +10,6 @@ RUN \
     && apk add --no-cache \
     zlib icu libpq libzip linux-headers openldap openldap-back-mdb libmemcached \
     # php extensions
-    && echo Installing
-
-RUN echo Installing \
     && docker-php-source extract \
     && pecl channel-update pecl.php.net \
     && { php -m | grep gd || docker-php-ext-configure gd --with-freetype --with-jpeg --enable-gd; } \
