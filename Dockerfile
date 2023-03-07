@@ -1,4 +1,4 @@
-FROM php:8.1-fpm-alpine
+FROM php:8.1-fpm-alpine3.17
 
 RUN \
     # deps
@@ -28,4 +28,6 @@ RUN \
 
 EXPOSE 9000
 
-CMD ["php-fpm"]
+RUN echo "php_admin_flag[log_errors] = on" >> /usr/local/etc/php-fpm.d/www.conf
+
+CMD ["php-fpm", "-y", "/usr/local/etc/php-fpm.conf", "-R"]

@@ -1,10 +1,15 @@
-# php-fpm docker image for laravel
-includes:
-* nodejs & npm
+# php-fpm image for laravel
+
+Includes:
 * bcmath
-* exif
 * gd
 * intl
 * pcntl
+* ldap
+* pdo_mysql
 * pdo_pgsql
 * zip
+* memcached
+* redis
+* xdebug
+* composer
