@@ -14,7 +14,7 @@ RUN \
     && docker-php-source extract \
     && pecl channel-update pecl.php.net \
     && { php -m | grep gd || docker-php-ext-configure gd --with-freetype --with-jpeg --enable-gd; } \
-    && docker-php-ext-install bcmath gd intl pcntl ldap pdo_mysql pdo_pgsql zip \
+    && docker-php-ext-install bcmath gd intl pcntl ldap opcache pdo_mysql pdo_pgsql zip \
     && { pecl clear-cache || true; } \
     && pecl install memcached redis xdebug \
     && docker-php-source delete \
@@ -27,6 +27,9 @@ RUN \
     && rm -rf /var/cache/apk/* /tmp/* /var/tmp/* /usr/share/doc/* /usr/share/man/*
 
 EXPOSE 9000
+
+COPY src/usr/local/share/ca-certificates/rcert.pem /usr/local/share/ca-certificates/rcert.pem
+RUN update-ca-certificates
 
 RUN echo "php_admin_flag[log_errors] = on" >> /usr/local/etc/php-fpm.d/www.conf
 
