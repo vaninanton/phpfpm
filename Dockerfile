@@ -1,4 +1,6 @@
-FROM php:8.1-fpm-alpine3.17
+# syntax=docker/dockerfile:1.4
+
+FROM --platform=$BUILDPLATFORM php:8.1-fpm-alpine3.17
 
 RUN \
     # deps
@@ -8,7 +10,7 @@ RUN \
     openldap-dev libzip-dev libmemcached-dev postgresql-dev \
     # prod deps
     && apk add --no-cache \
-    zlib icu libpq libzip linux-headers openldap openldap-back-mdb libmemcached \
+    zlib icu libpq libzip git linux-headers openldap openldap-back-mdb libmemcached \
     freetype-dev libpng-dev jpeg-dev libjpeg-turbo-dev \
     # php extensions
     && docker-php-source extract \
