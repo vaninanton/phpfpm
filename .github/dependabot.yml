@@ -18,5 +18,3 @@ updates:
       interval: "daily"
     commit-message:
       prefix: "[docker] "
-    labels:
-      - "dependencies"
