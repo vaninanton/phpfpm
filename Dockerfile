@@ -31,6 +31,7 @@ RUN \
 EXPOSE 9000
 
 COPY src/usr/local/share/ca-certificates/rcert.pem /usr/local/share/ca-certificates/rcert.pem
+COPY src/usr/local/share/ca-certificates/YandexInternalRootCA.crt /usr/local/share/ca-certificates/YandexInternalRootCA.crt
 RUN update-ca-certificates
 
 RUN echo "php_admin_flag[log_errors] = on" >> /usr/local/etc/php-fpm.d/www.conf
