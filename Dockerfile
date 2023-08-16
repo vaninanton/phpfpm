@@ -11,7 +11,7 @@ RUN \
     # prod deps
     && apk add --no-cache \
     zlib icu libpq libzip git linux-headers openldap openldap-back-mdb libmemcached \
-    freetype-dev libpng-dev jpeg-dev libjpeg-turbo-dev \
+    freetype-dev libpng-dev jpeg-dev libjpeg-turbo-dev shadow \
     # php extensions
     && docker-php-source extract \
     && pecl channel-update pecl.php.net \
